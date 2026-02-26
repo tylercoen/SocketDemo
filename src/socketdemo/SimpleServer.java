@@ -1,6 +1,6 @@
 package socketdemo;
 
-import java.io.BufferReader;
+import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -16,9 +16,9 @@ public class SimpleServer {
 			Socket socket = serverSocket.accept();
 			System.out.println("Client connected!");
 
-			BufferReader reader = new BufferReader(new InputStreamReader(socket.getInputStream()));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-			String message = reader.readline();
+			String message = reader.readLine();
 			System.out.println("Received from client: " + message);
 
 			socket.close();
